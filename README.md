@@ -6,7 +6,9 @@ App de running y diario privado de entrenamiento.
 
 ## Guardado entre móvil y ordenador
 
-La web está conectada con Supabase. Entra en **Cuenta**, introduce tu correo y abre el enlace de acceso en cada dispositivo. Usa el mismo correo en ambos. Antes de cerrar, comprueba el indicador **Sincronizado**.
+La web está conectada con Supabase y recuerda la sesión en cada navegador. Usa el mismo correo y tu contraseña de Ritmo en móvil y ordenador. La contraseña se puede establecer desde Cuenta en un navegador donde ya tengas una sesión abierta. Antes de cerrar, comprueba el indicador **Sincronizado**.
+
+Si abres la app desde Teams, elige **Abrir en navegador** y usa siempre Safari o Chrome. El acceso por correo queda como alternativa y no se solicita automáticamente. Cerrar sesión en un navegador no cierra los otros dispositivos.
 
 Si ya tenías sesiones en un navegador, inicia sesión y usa **Importar los registros locales a esta cuenta**.
 
@@ -21,4 +23,12 @@ Si ya tenías sesiones en un navegador, inicia sesión y usa **Importar los regi
 
 HTML sin compilación, servido por GitHub Pages desde la raíz de main. DEFAULT_CONFIG contiene únicamente la URL y clave pública de Supabase. No añadas claves secretas ni service_role. schema.sql define las tablas, permisos y guardado.
 
-Las pruebas transaccionales de guardado, aislamiento entre dos cuentas y conflictos de ediciones han pasado. El acceso por correo se completa por la usuaria. Consulta LEEME.txt para la referencia de instalación.
+Las pruebas transaccionales de guardado, aislamiento entre dos cuentas y conflictos de ediciones han pasado. La creación de la contraseña y la comprobación final en los navegadores se completan por la usuaria. Consulta LEEME.txt para la referencia de instalación.
+
+## Pruebas
+
+`node tests/plan.test.mjs`
+
+`node tests/auth.test.mjs`
+
+Las pruebas de sesión usan un cliente simulado: no envían correos ni acceden a cuentas reales.

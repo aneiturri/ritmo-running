@@ -3,8 +3,9 @@ Preparado el 29 de octubre de 2026.
 
 ABRIR Y USAR
 Abre https://aneiturri.github.io/ritmo-running/ en móvil y ordenador.
-La app ya está conectada con Supabase. Entra en Cuenta con el mismo correo
-en ambos dispositivos. El formulario enviará un enlace de acceso a tu correo.
+La app recuerda tu sesión en el navegador. Abre Cuenta y usa el mismo correo
+y tu contraseña de Ritmo en ambos dispositivos. Consulta ACCESO.txt para
+establecer tu contraseña desde una sesión ya abierta y abrir fuera de Teams.
 Espera el indicador Sincronizado tras cada guardado.
 Si ya tenías sesiones locales, inicia sesión desde ese navegador y usa
 Cuenta > Importar los registros locales a esta cuenta.

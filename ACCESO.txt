@@ -1,0 +1,35 @@
+RITMO — SESIÓN RECORDADA
+
+Abre https://aneiturri.github.io/ritmo-running/?v=sesion-20261029
+
+EN EL MÓVIL
+Si abres el enlace desde Teams, usa su menú y elige Abrir en navegador. Usa
+siempre Safari o Chrome. Puedes guardar Ritmo en la pantalla de inicio.
+El navegador de Teams y el navegador que abre el correo pueden conservar
+sesiones distintas. Ritmo no puede trasladar automáticamente una cuenta entre
+navegadores sin un acceso inicial en cada uno.
+
+TU SESIÓN
+Ritmo conserva la sesión en ese navegador y renueva el acceso automáticamente.
+No te identifica de nuevo por cada entrenamiento. No uses navegación privada
+si quieres conservar la sesión al cerrar. Cerrar sesión solo afecta al navegador
+actual, no a los demás dispositivos.
+
+ACCESO SIN PEDIR CORREOS
+Si aún no has creado una contraseña de Ritmo, desde el navegador donde ya
+aparece tu cuenta conectada abre Cuenta > Establecer una contraseña para Ritmo.
+Introduce tú la contraseña y guárdala. Es una contraseña para esta app, distinta
+de la de la base de datos y de tu cuenta del panel Supabase.
+En el otro dispositivo, usa el mismo correo y esa contraseña una primera vez.
+No se piden correos para el acceso con contraseña.
+
+El acceso por correo queda como alternativa. Si el proveedor ha limitado los
+envíos, la app no realiza nuevos envíos automáticos ni intentos repetidos.
+No se ha aumentado ni desactivado el límite de correos del proveedor.
+
+VERIFICACIÓN
+Se han probado con un cliente simulado: recuperación de la sesión anterior,
+recarga, inicio lento, conservación de cuenta sin red, un único cliente por
+página, acceso con contraseña sin correo, no almacenar la contraseña, cierre
+de sesión de alcance local y bloqueo de nuevos envíos tras un límite.
+La prueba real con la contraseña la completa la usuaria en sus navegadores.
