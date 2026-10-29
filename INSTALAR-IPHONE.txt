@@ -1,0 +1,22 @@
+RITMO EN LA PANTALLA DE INICIO DEL IPHONE
+
+1. Abre esta versión en Safari:
+   https://aneiturri.github.io/ritmo-running/?v=app-20261029
+2. Toca Compartir (cuadrado con flecha hacia arriba). En algunas versiones
+   de Safari está dentro del menú de la página.
+3. Selecciona Añadir a pantalla de inicio.
+4. Deja el nombre Ritmo y, si aparece, activa Abrir como app web.
+5. Pulsa Añadir.
+
+Verás el icono verde con la r y la barra lima. Desde ese icono Ritmo se abrirá
+en su propia ventana, como una app.
+
+Al abrirla desde el icono por primera vez, iOS puede pedirte iniciar sesión
+una vez con tu correo y contraseña de Ritmo. Usa siempre el mismo correo
+para recuperar los entrenamientos que ya tienes en Supabase.
+
+Si no aparece Añadir a pantalla de inicio, ve al final del menú Compartir,
+pulsa Editar acciones y añade esa opción.
+
+Ayuda oficial de Apple:
+https://support.apple.com/es-es/guide/iphone/iphea86e5236/ios
