@@ -2,11 +2,13 @@ RITMO — PLAN Y APP PERSONAL
 Preparado el 29 de octubre de 2026.
 
 ABRIR Y USAR
-Abre index.html para consultar el plan. Funciona sin instalar nada y sin conexión
-para consultar los entrenamientos y registrar sesiones en el navegador.
-Los registros locales pertenecen a ese navegador/dispositivo. Exporta JSON como
-copia de seguridad. La sincronización requiere configurar Supabase y publicar
-la web. No hay sincronización entre dispositivos antes de completar esos pasos.
+Abre https://aneiturri.github.io/ritmo-running/ en móvil y ordenador.
+La app ya está conectada con Supabase. Entra en Cuenta con el mismo correo
+en ambos dispositivos. El formulario enviará un enlace de acceso a tu correo.
+Espera el indicador Sincronizado tras cada guardado.
+Si ya tenías sesiones locales, inicia sesión desde ese navegador y usa
+Cuenta > Importar los registros locales a esta cuenta.
+El archivo index.html permite consultar el plan; para autenticarte usa la web.
 
 TU PLAN
 Arranque: 29 de octubre de 2026. Después, 22 semanas completas desde el 2 de
@@ -28,7 +30,7 @@ llega a 28 km en una semana ordinaria. La tirada más larga es hasta 18 km O 110
 minutos, lo que llegue antes. Si la progresión cuesta, repetir o reducir.
 No es necesario completar 21 km antes de la media.
 
-PUBLICAR CON GITHUB PAGES Y SUPABASE
+REFERENCIA TÉCNICA PARA REUTILIZAR LA APP EN OTRO PROYECTO
 1. En https://supabase.com/dashboard crea un proyecto en tu organización.
    Selecciona la región y el plan que prefieras. Guarda la contraseña de la base
    de datos por tu cuenta: esta app no la necesita.
@@ -79,9 +81,10 @@ COMPROBAR QUE TODO ESTÁ BIEN
    la primera. No desactives RLS para corregir un error de conexión.
 
 LÍMITES DE LA ENTREGA
-No se ha creado ni publicado un proyecto de Supabase o repositorio de GitHub:
-requiere acceso a tus cuentas. La integración se entrega implementada, pero su
-prueba real entre dispositivos debe hacerse después de conectar el proyecto.
+GitHub: repositorio público aneiturri/ritmo-running y Pages publicado.
+Web: https://aneiturri.github.io/ritmo-running/
+Supabase conectado: tabla training_logs, RLS y función de guardado verificados.
+Cada usuaria debe completar el acceso por correo en sus dispositivos.
 GitHub Pages sirve contenido estático; nunca pongas claves secretas en el HTML.
 
 FUENTES

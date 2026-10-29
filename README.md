@@ -1,18 +1,24 @@
 # Ritmo
 
-App personal de running con un plan de 22 semanas hasta la Media Maratón de Donostia del 4 de abril de 2027.
+App de running y diario privado de entrenamiento.
 
-- HTML adaptable con menú lateral desplegable.
-- Diario con kilómetros, duración, esfuerzo y notas.
-- Guardado local e integración con Supabase para sincronizar entre dispositivos.
-- Fuerza en casa, sin gimnasio.
+**Abrir la app:** https://aneiturri.github.io/ritmo-running/
 
-## Estado
+## Guardado entre móvil y ordenador
 
-Código preparado. La sincronización necesita un proyecto de Supabase con `schema.sql` aplicado y su configuración pública en `DEFAULT_CONFIG` dentro de `index.html`. Nunca añadas claves `service_role` ni claves secretas al repositorio.
+La web está conectada con Supabase. Entra en **Cuenta**, introduce tu correo y abre el enlace de acceso en cada dispositivo. Usa el mismo correo en ambos. Antes de cerrar, comprueba el indicador **Sincronizado**.
 
-## Publicación
+Si ya tenías sesiones en un navegador, inicia sesión y usa **Importar los registros locales a esta cuenta**.
 
-En Settings → Pages, selecciona la rama `main` y la carpeta raíz. Si tu plan de GitHub no permite Pages en repositorios privados, tendrás que elegir un alojamiento compatible o decidir cambiar la visibilidad.
+## Contenido
 
-Consulta `LEEME.txt` para la configuración completa. No subas exportaciones de tus registros personales al repositorio.
+- Plan de 22 semanas, tres carreras y fuerza en casa.
+- Menú lateral desplegable y diseño adaptable.
+- Diario con kilómetros, tiempo, esfuerzo y notas.
+- RLS para separar los registros de cada cuenta y cola de cambios pendientes sin conexión.
+
+## Código
+
+HTML sin compilación, servido por GitHub Pages desde la raíz de main. DEFAULT_CONFIG contiene únicamente la URL y clave pública de Supabase. No añadas claves secretas ni service_role. schema.sql define las tablas, permisos y guardado.
+
+Las pruebas transaccionales de guardado, aislamiento entre dos cuentas y conflictos de ediciones han pasado. El acceso por correo se completa por la usuaria. Consulta LEEME.txt para la referencia de instalación.
