@@ -1,7 +1,7 @@
 RITMO EN LA PANTALLA DE INICIO DEL IPHONE
 
 1. Abre esta versión en Safari:
-   https://aneiturri.github.io/ritmo-running/?v=app-20261029
+   https://aneiturri.github.io/ritmo-running/?v=icono-ritmo-v2
 2. Toca Compartir (cuadrado con flecha hacia arriba). En algunas versiones
    de Safari está dentro del menú de la página.
 3. Selecciona Añadir a pantalla de inicio.
@@ -20,3 +20,7 @@ pulsa Editar acciones y añade esa opción.
 
 Ayuda oficial de Apple:
 https://support.apple.com/es-es/guide/iphone/iphea86e5236/ios
+
+Si tenías un icono con una R genérica, elimina ese acceso antiguo y vuelve a
+añadirlo desde el enlace actualizado indicado arriba. El nuevo archivo del icono evita reutilizar
+la imagen antigua que Safari hubiera guardado.
