@@ -1,0 +1,95 @@
+RITMO — PLAN Y APP PERSONAL
+Preparado el 29 de octubre de 2026.
+
+ABRIR Y USAR
+Abre index.html para consultar el plan. Funciona sin instalar nada y sin conexión
+para consultar los entrenamientos y registrar sesiones en el navegador.
+Los registros locales pertenecen a ese navegador/dispositivo. Exporta JSON como
+copia de seguridad. La sincronización requiere configurar Supabase y publicar
+la web. No hay sincronización entre dispositivos antes de completar esos pasos.
+
+TU PLAN
+Arranque: 29 de octubre de 2026. Después, 22 semanas completas desde el 2 de
+noviembre hasta el 4 de abril de 2027. Todos los días tienen una sesión o descanso.
+Lunes 18:45: carrera; martes 18:45: fuerza en casa; miércoles 18:45: fondo;
+jueves 18:45: recuperación corta o descanso; viernes 19:00: pádel.
+Fin de semana libre excepto las carreras. En semanas de competición hay ajustes.
+Sin gimnasio, máquinas ni material deportivo obligatorio.
+Menú lateral a la izquierda; en móvil se despliega con el botón ☰.
+
+Carreras:
+- 31 diciembre 2026: San Silvestre Donostiarra, 7,9 km (corregida contigo).
+- 14 febrero 2027: 10K Gimnástica de Ulía, objetivo 50–55 min, revisable.
+- 4 abril 2027: Media Maratón de Donostia, 21,1 km, sin objetivo de tiempo fijado.
+
+Punto de partida: dos salidas de unos 7 km/semana, cerca de 6 min/km, sin lesiones
+declaradas. El ritmo fácil es orientativo: manda poder conversar. El plan máximo
+llega a 28 km en una semana ordinaria. La tirada más larga es hasta 18 km O 110
+minutos, lo que llegue antes. Si la progresión cuesta, repetir o reducir.
+No es necesario completar 21 km antes de la media.
+
+PUBLICAR CON GITHUB PAGES Y SUPABASE
+1. En https://supabase.com/dashboard crea un proyecto en tu organización.
+   Selecciona la región y el plan que prefieras. Guarda la contraseña de la base
+   de datos por tu cuenta: esta app no la necesita.
+2. SQL Editor > New query: pega schema.sql y ejecútalo. Incluye la tabla,
+   Row Level Security y una función para guardar exclusivamente tus registros.
+3. En Connect o Settings > API Keys copia la Project URL y la clave pública
+   publishable (sb_publishable_...) o la antigua anon. NO uses service_role,
+   sb_secret ni la contraseña de la base de datos.
+4. En GitHub crea un repositorio, por ejemplo ritmo. Para GitHub Free,
+   GitHub Pages requiere normalmente un repositorio público. El código de la app
+   será público; tus registros están en Supabase y protegidos por usuario.
+5. Sube SOLO los archivos de esta carpeta al repositorio, con index.html en la
+   raíz de la rama main. Incluye .nojekyll. No subas exportaciones de tus datos.
+6. Antes de subir index.html puedes editar DEFAULT_CONFIG, reemplazando sus
+   dos cadenas vacías por tu URL y clave pública. Así todos tus dispositivos
+   tendrán la misma configuración. Como alternativa, usa Cuenta en cada uno.
+7. En el repositorio: Settings > Pages > Deploy from a branch > main > / (root)
+   > Save. Espera la publicación y copia la URL que GitHub te indique.
+8. En Supabase: Authentication > URL Configuration. Configura la URL de Pages
+   (incluido el nombre del repositorio y la barra final) como Site URL y como
+   Redirect URL permitida. No utilices una URL file://.
+9. En la app publicada: Cuenta > escribe tu correo > Enviar enlace de acceso.
+   Abre el correo en ese mismo dispositivo. Repite con EL MISMO CORREO en el otro.
+10. Si tienes registros previos locales, entra en Cuenta y pulsa Importar los
+    registros locales a esta cuenta. Es una acción explícita para no mezclar datos.
+
+IMPORTANTE AL USAR LA NUBE
+- El indicador muestra Sincronizado solo tras una lectura/escritura correcta.
+- Sin red, los cambios quedan en cola para reintentarlos al volver a conectar.
+- Al regresar a una pestaña, o cada 30 segundos mientras está visible, actualiza.
+- Realtime también actualiza si está habilitado en Supabase.
+- Cada sesión se guarda por separado. Si dos dispositivos editan la misma sesión,
+  gana la edición con la fecha más reciente. Mantén correctos los relojes.
+- Cerrar sesión separa los datos de la cuenta de los registros del modo local.
+  El navegador conserva una copia de esa cuenta para recuperación en ese perfil.
+  En equipos compartidos, usa navegación privada y cierra la ventana al terminar.
+- El formulario exige confirmación si cierras sesión con cambios pendientes.
+- Las exportaciones contienen tus notas: consérvalas en un lugar privado.
+- El SDK de Supabase se carga desde jsDelivr al configurar la nube; el plan y
+  el modo local no necesitan ese SDK.
+
+COMPROBAR QUE TODO ESTÁ BIEN
+1. En un ordenador, entra con el mismo correo que usarás en el móvil.
+2. Registra una sesión con distancia, tiempo y una nota breve. Espera Sincronizado.
+3. En el móvil entra y comprueba el mismo registro. Edítalo y guarda.
+4. Vuelve al ordenador: al enfocar la pestaña debe actualizarse.
+5. Con una segunda cuenta de prueba, verifica que no aparecen los registros de
+   la primera. No desactives RLS para corregir un error de conexión.
+
+LÍMITES DE LA ENTREGA
+No se ha creado ni publicado un proyecto de Supabase o repositorio de GitHub:
+requiere acceso a tus cuentas. La integración se entrega implementada, pero su
+prueba real entre dispositivos debe hacerse después de conectar el proyecto.
+GitHub Pages sirve contenido estático; nunca pongas claves secretas en el HTML.
+
+FUENTES
+https://www.sansilvestredonostiarra.com/home-CAS.html
+https://www.10kgimnasticaulia.com/es
+https://www.mediadonosti.com/
+https://www.nhs.uk/better-health/get-active/get-running-with-couch-to-5k/
+https://www.bhf.org.uk/-/media/files/how-you-can-help/events/events-rebranded-training-plans/10k-run-beginners.pdf
+https://supabase.com/docs/guides/database/secure-data
+https://supabase.com/docs/reference/javascript/auth-signinwithotp
+https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site

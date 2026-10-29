@@ -1,0 +1,7 @@
+*-datos-*.json
+donostia-run-20*.json
+.env
+.env.*
+.DS_Store
+node_modules/
+ritmo-20*.json
