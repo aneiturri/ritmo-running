@@ -43,7 +43,9 @@ await run('syncCloud(false)');assert.equal(run('Object.keys(pending).length'),0)
 run(`pending[id]=sample;sb.rpc=async()=>{pending[id]={...sample,notes:'new edit',updated_at:new Date(Date.now()+1000).toISOString()};return {data:[{session_id:id,...sample}],error:null}};`);
 await run('syncCloud(false)');assert.equal(run('pending[id].notes'),'new edit');
 const audit=run('JSON.stringify(weeks.map(w=>({week:w.n,start:w.start,phase:w.phase,km:weekSessions(w).filter(isRun).reduce((a,s)=>a+s.km,0)})),null,2)');
-run('openMenu()');assert.ok(bodyClasses.has('menuopen'));run('closeMenu()');assert.equal(bodyClasses.has('menuopen'),false);
+assert.equal((html.match(/data-tab="/g)||[]).length,6,'All six navigation tabs remain visible');
+assert.ok(html.includes('<nav class="bottom-nav"'));
+assert.ok(!html.includes('<aside class="sidebar"'));
 assert.ok(html.includes('<title>Ritmo · Tu siguiente meta</title>'));
 
 console.log('PASS: 158 dated sessions, 22 weeks, race dates, weekday constraints, 6 views, escaped notes, validation, offline queue and in-flight edits.');

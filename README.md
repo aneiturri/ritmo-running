@@ -15,8 +15,11 @@ Si ya tenías sesiones en un navegador, inicia sesión y usa **Importar los regi
 ## Contenido
 
 - Plan de 22 semanas, tres carreras y fuerza en casa.
-- Menú lateral desplegable y diseño adaptable.
-- Diario con kilómetros, tiempo, esfuerzo y notas.
+- Seis pestañas visibles en la navegación inferior y diseño adaptable.
+- Anillos de progreso semanal y del plan, basados en entrenamientos de running completados.
+- Selector de semanas y calendario mensual interactivo.
+- Gráfico de kilómetros previstos y registrados, con vistas de 4 semanas, 8 semanas o todo el plan.
+- Diario de running con kilómetros, tiempo, esfuerzo y notas. Pádel y fuerza se muestran como orientación opcional y no se registran ni cuentan en los porcentajes.
 - RLS para separar los registros de cada cuenta y cola de cambios pendientes sin conexión.
 
 ## Código
@@ -30,5 +33,7 @@ Las pruebas transaccionales de guardado, aislamiento entre dos cuentas y conflic
 `node tests/plan.test.mjs`
 
 `node tests/auth.test.mjs`
+
+`node tests/dashboard.test.mjs`
 
 Las pruebas de sesión usan un cliente simulado: no envían correos ni acceden a cuentas reales.

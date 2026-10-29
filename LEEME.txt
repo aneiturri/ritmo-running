@@ -18,7 +18,12 @@ Lunes 18:45: carrera; martes 18:45: fuerza en casa; miércoles 18:45: fondo;
 jueves 18:45: recuperación corta o descanso; viernes 19:00: pádel.
 Fin de semana libre excepto las carreras. En semanas de competición hay ajustes.
 Sin gimnasio, máquinas ni material deportivo obligatorio.
-Menú lateral a la izquierda; en móvil se despliega con el botón ☰.
+Seis pestañas visibles en la barra inferior, tanto en móvil como en ordenador.
+Resumen muestra anillos con el porcentaje de carreras a pie completadas.
+Mi plan incluye un selector de semanas y un calendario mensual interactivo.
+Progreso compara los kilómetros previstos y registrados en 4, 8 o todas las semanas.
+Solo se registran los entrenamientos de running. Fuerza y pádel son orientaciones
+opcionales y no cuentan para el porcentaje. Los registros anteriores se conservan.
 
 Carreras:
 - 31 diciembre 2026: San Silvestre Donostiarra, 7,9 km (corregida contigo).
