@@ -33,3 +33,10 @@ recarga, inicio lento, conservación de cuenta sin red, un único cliente por
 página, acceso con contraseña sin correo, no almacenar la contraseña, cierre
 de sesión de alcance local y bloqueo de nuevos envíos tras un límite.
 La prueba real con la contraseña la completa la usuaria en sus navegadores.
+
+SI NO QUEDA NINGUNA SESIÓN ABIERTA
+En Cuenta introduce tu correo y pulsa Crear o recuperar mi contraseña.
+Este primer paso necesita un correo de recuperación. Si Supabase ha limitado
+los envíos, espera a que se restablezcan antes de solicitarlo una vez. Abre el
+enlace en Safari o Chrome y establece tu contraseña. Después entra con correo
+y contraseña en cada dispositivo; el uso normal no necesita nuevos correos.

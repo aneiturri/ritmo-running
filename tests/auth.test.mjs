@@ -6,8 +6,8 @@ const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const storageKey='sb-qnthoswcdedufkgcnnlk-auth-token';
 const savedSession={access_token:'unit-test-only',refresh_token:'unit-test-only',expires_at:Math.floor(Date.now()/1000)+3600,user:{id:'existing-runner',email:'runner@example.invalid'}};
 function setup({storage=new Map(),delay=false}={}){
- const elements=new Map(),calls={clients:0,password:0,email:0,updates:0,scope:null},classes=new Set();let release,first=true;
- const el=()=>({value:'',innerHTML:'',textContent:'',disabled:false,style:{},classList:{toggle(){}},setAttribute(){},focus(){},append(){},click(){},showModal(){this.opened=true},close(){this.opened=false}});
+ const elements=new Map(),calls={clients:0,password:0,email:0,recovery:0,updates:0,scope:null},classes=new Set();let release,first=true;
+ const el=()=>({value:'',innerHTML:'',textContent:'',disabled:false,style:{},classList:{toggle(){}},setAttribute(){},focus(){},reportValidity(){return true},append(){},click(){},showModal(){this.opened=true},close(){this.opened=false}});
  const document={hidden:false,body:{classList:{add:v=>classes.add(v),remove:v=>classes.delete(v),contains:v=>classes.has(v)}},querySelector:s=>{if(!elements.has(s))elements.set(s,el());return elements.get(s)},querySelectorAll:()=>[],createElement:el,addEventListener(){}};
  const localStorage={getItem:k=>storage.get(k)??null,setItem:(k,v)=>storage.set(k,String(v)),removeItem:k=>storage.delete(k)};
  const library={createClient(url,key,options){calls.clients++;calls.options=options;const auth={
@@ -15,6 +15,7 @@ function setup({storage=new Map(),delay=false}={}){
   async getSession(){if(calls.offline)return {data:{session:null},error:{message:'offline'}};if(delay&&first){first=false;await new Promise(r=>release=r)}return {data:{session:JSON.parse(storage.get(options.auth.storageKey)||'null')},error:null}},
   async signInWithPassword(){calls.password++;storage.set(options.auth.storageKey,JSON.stringify(savedSession));return {data:{session:savedSession},error:null}},
   async signInWithOtp(){calls.email++;return {error:{status:429,message:'email rate limit exceeded'}}},
+  async resetPasswordForEmail(){calls.recovery++;return {data:{},error:null}},
   async updateUser(){calls.updates++;return {data:{user:savedSession.user},error:null}},
   async signOut(options){calls.scope=options.scope;storage.delete(storageKey);return {error:null}}
  };return {auth,from:()=>({select:async()=>({data:[],error:null})}),rpc:async()=>({data:[],error:null}),channel:()=>({on(){return this},subscribe(){return this}}),removeChannel:async()=>{}}}};
@@ -44,4 +45,9 @@ password.run('bindView()');await password.elements.get('#logout').onclick();asse
 const limited=setup();await limited.run('connectCloud()');limited.run("nav('settings');$('#email').value='runner@example.invalid'");
 await limited.elements.get('#loginform').onsubmit({preventDefault(){}});assert.equal(limited.calls.email,1);assert.equal(limited.elements.get('#loginbtn').disabled,true);
 await limited.elements.get('#loginform').onsubmit({preventDefault(){}});assert.equal(limited.calls.email,1,'Do not repeatedly send after rate limit');
+const recovery=setup();await recovery.run('connectCloud()');recovery.run("nav('settings');$('#passwordemail').value='runner@example.invalid'");
+assert.equal(recovery.calls.recovery,0,'Recovery never sends automatically');
+await recovery.elements.get('#recoverpassword').onclick();assert.equal(recovery.calls.recovery,1);
+await recovery.elements.get('#recoverpassword').onclick();assert.equal(recovery.calls.recovery,1,'Recovery observes the shared cooldown');
+recovery.run("passwordRecovery=true;user={id:'test',email:'runner@example.invalid'}");assert.ok(recovery.run('renderAuthPanel()').includes('<details class="note" open>'));
 console.log('PASS: existing session migration, explicit persistent auth, slow restore, page reload, offline retention, one client, password login without email, no password storage, local-only sign-out and email rate-limit cooldown.');
