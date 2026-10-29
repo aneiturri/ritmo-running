@@ -14,16 +14,21 @@ El archivo index.html permite consultar el plan; para autenticarte usa la web.
 TU PLAN
 Arranque: 29 de octubre de 2026. Después, 22 semanas completas desde el 2 de
 noviembre hasta el 4 de abril de 2027. Todos los días tienen una sesión o descanso.
-Lunes 18:45: carrera; martes 18:45: fuerza en casa; miércoles 18:45: fondo;
-jueves 18:45: recuperación corta o descanso; viernes 19:00: pádel.
+Lunes 18:45: running de 6–7 km; miércoles 18:45: fondo progresivo.
+Dos salidas semanales, contando los dorsales. Tras el 10K, solo una de recuperación.
+Fondo desde 8–9 km hacia 10–12 km, con máximo orientativo de 16 km o 110 min.
+Las descargas reducen el fondo; si no recuperas bien, repite o baja distancia.
+Martes: fuerza opcional en casa; jueves: descanso; viernes 19:00: pádel opcional.
 Fin de semana libre excepto las carreras. En semanas de competición hay ajustes.
 Sin gimnasio, máquinas ni material deportivo obligatorio.
 Seis pestañas visibles en la barra inferior, tanto en móvil como en ordenador.
 Resumen muestra anillos con el porcentaje de carreras a pie completadas.
 Mi plan incluye un selector de semanas y un calendario mensual interactivo.
-Progreso compara los kilómetros previstos y registrados en 4, 8 o todas las semanas.
+Progreso compara kilómetros previstos y registrados con barras verticales por mes.
+Toca un mes para consultar sus datos. Los meses futuros aparecen sin datos reales.
 Solo se registran los entrenamientos de running. Fuerza y pádel son orientaciones
-opcionales y no cuentan para el porcentaje. Los registros anteriores se conservan.
+opcionales y no cuentan para el porcentaje. Los registros anteriores se conservan
+y siguen editables en el diario, incluidos los de terceras salidas retiradas.
 
 Carreras:
 - 31 diciembre 2026: San Silvestre Donostiarra, 7,9 km (corregida contigo).

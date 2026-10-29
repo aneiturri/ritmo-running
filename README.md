@@ -14,13 +14,16 @@ Si ya tenías sesiones en un navegador, inicia sesión y usa **Importar los regi
 
 ## Contenido
 
-- Plan de 22 semanas, tres carreras y fuerza en casa.
+- Plan de 22 semanas con dos salidas: lunes de 6–7 km y fondo el miércoles a las 18:45. Las carreras sustituyen una salida y tras el 10K solo hay una sesión de recuperación.
+- Fondo progresivo desde 8–9 km hasta un máximo orientativo de 16 km o 110 minutos, con semanas de descarga y ajuste por sensaciones. Fuerza en casa opcional.
 - Seis pestañas visibles en la navegación inferior y diseño adaptable.
 - Anillos de progreso semanal y del plan, basados en entrenamientos de running completados.
 - Selector de semanas y calendario mensual interactivo.
-- Gráfico de kilómetros previstos y registrados, con vistas de 4 semanas, 8 semanas o todo el plan.
+- Gráfico de barras verticales por meses: kilómetros previstos y registrados, de octubre de 2026 a abril de 2027. Los meses futuros no inventan datos reales.
 - Diario de running con kilómetros, tiempo, esfuerzo y notas. Pádel y fuerza se muestran como orientación opcional y no se registran ni cuentan en los porcentajes.
 - RLS para separar los registros de cada cuenta y cola de cambios pendientes sin conexión.
+
+Las salidas registradas del plan anterior conservan sus identificadores, historial, kilómetros reales y edición. Una tercera salida retirada del calendario actual no cuenta como pendiente ni como completada del nuevo plan.
 
 ## Código
 

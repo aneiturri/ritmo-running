@@ -28,9 +28,18 @@ run("calendarMonth='2026-11';calendarFocus='2026-11-06'");assert.ok(!run('render
 run("calendarFocus='2026-11-04'");assert.ok(run('renderCalendarDetail()').includes('data-log='),'Running day can be registered');
 run("user={id:'test'}");await run("openLog(sessions.find(s=>s.type==='padel').id)");assert.equal(run('currentSession'),null,'Optional sessions cannot open the running log');
 assert.ok(run('currentPlanned()===null||isRun(currentPlanned())'));
-for(const range of [4,8,'all']){run(`chartRange=${JSON.stringify(range)}`);const chart=run('renderVolumeChart()');assert.ok(!/NaN|undefined/.test(chart));assert.ok(chart.includes('planned-path'));assert.ok(chart.includes('actual-path'));assert.ok(run('visibleChartData().length')<= (range==='all'?23:range));}
-run("records={};chartRange='all'");assert.equal(run('weeklyChartData().length'),23,'Chart includes the October starter week');
-assert.ok(run('weeklyChartData().filter(w=>w.start>today()).every(w=>w.actual===null)'),'Future weeks do not invent real distance');
+const chart=run('renderVolumeChart()');assert.ok(!/NaN|undefined/.test(chart));assert.ok(chart.includes('planned-month-bar'));assert.ok(chart.includes('actual-month-bar'));
+assert.equal((chart.match(/data-chart-month=/g)||[]).length,7,'All seven calendar months are shown');
+run("records={}");assert.equal(run('monthlyChartData().length'),7);
+assert.ok(run('monthlyChartData().filter(m=>m.month>today().slice(0,7)).every(m=>m.actual===null)'),'Future months do not invent real distance');
+assert.equal(run('monthlyChartData().reduce((n,m)=>n+m.planned,0).toFixed(1)'),run('sessions.filter(isRun).reduce((n,s)=>n+s.km,0).toFixed(1)'),'Monthly totals partition the plan without losing boundary dates');
+run("records['2026-11-05-easy']={status:'done',km:3.5,minutes:22,rpe:3,notes:'Salida anterior',updated_at:new Date().toISOString()}");
+assert.equal(run("monthlyChartData().find(m=>m.month==='2026-11').actual"),3.5,'Removed third runs still count as real recorded distance');
+assert.ok(run('renderProgress()').includes('plan anterior'),'Historical running remains visible and editable');
+assert.ok(run("validRecord('2026-11-05-easy',records['2026-11-05-easy'])"),'Original IDs remain valid');
+await run("openLog('2026-11-05-easy')");assert.equal(run('currentSession.id'),'2026-11-05-easy');
+assert.equal(run('runStats(sessions).done'),0,'An archived third run does not count as completing the revised plan');
+run("records={}");
 run("for(const s of sessions.filter(isRun))records[s.id]={status:'done'}");assert.equal(run('runStats(sessions).percent'),100);
 assert.equal(run('currentPlanned()'),null,'No completed session is shown as a future pending run');
 run("records={};pending={};user={id:'sync-test'};tab='plan';selectedWeek=0;calendarMonth='2026-11';");
@@ -41,4 +50,4 @@ elements.get('#weekpicker').open=true;elements.get('#view').innerHTML='selector 
 run("syncRow.status='partial';syncRow.updated_at=new Date().toISOString()");await run('syncCloud(false)');
 assert.equal(elements.get('#view').innerHTML,'selector abierto','Do not dismiss an open week selector during sync');
 assert.equal(run('planNeedsRefresh'),true);elements.get('#weekpicker').open=false;await run('syncCloud(false)');assert.equal(run('planNeedsRefresh'),false);
-console.log('PASS: real running-only percentages, partial states, monthly dates and boundaries, running-only registration, optional records preserved but excluded, chart ranges and missing future values, all six bottom tabs.');
+console.log('PASS: running-only percentages, monthly calendar and bars, preserved and editable historical runs, no invented future data, live plan sync and six bottom tabs.');
